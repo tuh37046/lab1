@@ -60,17 +60,17 @@ public class lab1 {
         }
     }
     public class Triangle extends Shape {
-        int s1,s2,s3;
+        float s1,s2,s3;
         public Triangle() {
             super("Triangle");
         }
-        public void setDimensions(int _s1,int _s2, int _s3) {
+        public void setDimensions(float _s1,float _s2, float _s3) {
             this.s1 = _s1;
             this.s2 = _s2;
             this.s3 = _s3;
         }
         public void printDimensions() {
-            System.out.println("Triangle dimensions: Side 1 = "+Integer.toString(s1)+", Side 2 = "+Integer.toString(s2)+", Side 3 = "+Integer.toString(s3));
+            System.out.println("Triangle dimensions: Side 1 = "+Float.toString(s1)+", Side 2 = "+Float.toString(s2)+", Side 3 = "+Float.toString(s3));
         }
         public double getArea() {
             float s = (s1+s2+s3)/2.0f;
@@ -79,15 +79,15 @@ public class lab1 {
         }
     }
     public class EquilateralTriangle extends Shape {
-        int sideLength;
+        float sideLength;
         public EquilateralTriangle() {
             super("Equilateral Triangle");
         }
-        public void setDimensions(int _sideLength) {
+        public void setDimensions(float _sideLength) {
            this.sideLength = _sideLength;
         }
         public void printDimensions() {
-            System.out.println("Triangle dimensions: Sides "+Integer.toString(sideLength));
+            System.out.println("Triangle dimensions: Sides "+Float.toString(sideLength));
         }
         public double getArea() {
             float s = (sideLength*3)/2.0f;
@@ -111,19 +111,32 @@ public class lab1 {
         height = scanner.nextInt();
 
         testSquare.setDimensions(length,height);
-        System.out.println(testSquare.getArea());
+        System.out.println("Area: "+Double.toString(testSquare.getArea()));
 
         System.out.println("Enter Circle radius:");
         float radius = scanner.nextFloat();
 
-        testSquare.setDimensions(radius);
-        System.out.println(testCircle.getArea());
+        testCircle.setDimensions(radius);
+        System.out.println("Area:"+Double.toString(testCircle.getArea()));
 
-        testET.setDimensions(3);
+        System.out.println("Enter Triangle side 1:");
+        float s1 = scanner.nextFloat();
+        System.out.println("Enter Triangle side 2:");
+        float s2 = scanner.nextFloat();
+        System.out.println("Enter Triangle side 3:");
+        float s3 = scanner.nextFloat();
+
+        testTriangle.setDimensions(s1,s2,s3);
+
+        System.out.println("Area:"+Double.toString(testTriangle.getArea()));
+
+        System.out.println("Enter Equilateral Triangle side length:");
+        float s = scanner.nextFloat();
+
+        testET.setDimensions(s);
         System.out.println(testET.getArea());
     }
     public static void main(String[] args) {
-        System.out.println("Hi");
         lab1 test = new lab1();
         test.testShapes();
     }
